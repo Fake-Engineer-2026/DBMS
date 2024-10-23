@@ -1,0 +1,38 @@
+CREATE TABLE teacher_info(
+teacher_id int,
+teacher_name varchar(10),
+dept_name varchar(10),
+salary int,
+subject_taught varchar(10)   
+);
+insert into teacher_info values(1,'Chaitanya','AI',50000,'ML'),(2,'kay','CS',10000,'OS'),(3,'Ray','IT',12000,'CD'),(4,'Ash','E&TC',40000,'Semi_con'),(5,'Happy','AI',80000,'DL');
+select* from teacher_info;
+
+CREATE TABLE student_info(
+roll_no int primary key,
+student_name varchar(10),
+dept_name varchar(10),
+class varchar(10),
+result varchar(10)   
+);
+
+insert into student_info values(101,'Kisan','AI','TY',85),(102,'Sam','IT','SY',90),(103,'Natasha','CS','TY',98),(104,'Tony','DS','TY',99),(105,'Steve','AI','SY',77);
+select* from student_info;
+
+-- inner join
+select teacher_info.teacher_id , teacher_info.teacher_name,student_info.roll_no,student_info.student_name
+from teacher_info
+join student_info
+on teacher_info.dept_name = student_info.dept_name;
+
+-- left outer join
+select teacher_info.teacher_id , teacher_info.teacher_name,student_info.roll_no,student_info.student_name
+from teacher_info
+left join student_info
+on teacher_info.dept_name = student_info.dept_name;
+
+-- right outer join
+select teacher_info.teacher_id , teacher_info.teacher_name,student_info.roll_no,student_info.student_name
+from teacher_info
+right join student_info
+on teacher_info.dept_name = student_info.dept_name;

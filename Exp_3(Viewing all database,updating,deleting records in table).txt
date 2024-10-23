@@ -1,0 +1,23 @@
+CREATE TABLE student_info(
+roll_no int primary key,
+student_name varchar(10) not null,
+dept_name varchar(10) not null,
+class varchar(10) not null,
+result varchar(10) not null  
+);
+
+insert into student_info values(101,'Kisan','AI','TY',85),(102,'Sam','IT','SY',90),(103,'Natasha','CS','TY',98),(104,'Tony','AI','TY',99),(105,'Steve','E&TC','SY',77);
+select* from student_info;
+
+CREATE view student_view as select roll_no,student_name,result from student_info where roll_no > 102;
+
+select* from student_view;
+
+-- update in student_info
+update student_info set student_name = 'Thor' where roll_no=105;
+
+select* from student_view;
+
+-- delete in student_info
+delete from student_view where roll_no = 105;
+select* from student_view;

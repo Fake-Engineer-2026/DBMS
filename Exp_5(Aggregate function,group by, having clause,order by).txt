@@ -1,0 +1,37 @@
+CREATE TABLE teacher_info(
+teacher_id int,
+teacher_name varchar(10),
+dept_name varchar(10),
+salary int,
+subject_taught varchar(10)   
+);
+
+insert into teacher_info values(1,'Chaitanya','AI',50000,'ML'),(2,'kay','CS',10000,'OS'),(3,'Ray','IT',12000,'CD'),(4,'Ash','E&TC',40000,'Semi_con'),(5,'Happy','AI',80000,'DL');
+select* from teacher_info;
+ 
+ -- aggregate function
+ 
+ -- 1.avg
+select avg(salary) from teacher_info;
+
+-- 2.max
+select max(salary) from teacher_info;
+
+-- 3.min
+select min(salary) from teacher_info;
+ 
+-- 4.count
+select count(teacher_name) from teacher_info;
+
+-- 5.sum
+select sum(salary) from teacher_info;
+
+-- extra
+insert into teacher_info values(6,'Peter','AI',50000,'ML');
+select count(distinct(salary)) from teacher_info;
+
+-- groupby & having
+ select teacher_name,dept_name,avg(salary) from teacher_info group by dept_name having dept_name = 'AI';
+
+-- order by 
+select teacher_name,dept_name,avg(salary) from teacher_info group by dept_name order by teacher_name ASC ;

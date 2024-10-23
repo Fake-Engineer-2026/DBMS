@@ -1,0 +1,35 @@
+CREATE TABLE student_info(
+roll_no int primary key,
+student_name varchar(10) not null,
+dept_name varchar(10) not null,
+class varchar(10) not null,
+result varchar(10) not null  
+);
+
+insert into student_info values(101,'Kisan','AI','TY',85),(102,'Sam','IT','SY',90),(103,'Natasha','CS','TY',98),(104,'Tony','AI','TY',99),(105,'Steve','E&TC','SY',77);
+select* from student_info;
+
+-- altering
+alter table student_info
+add phone_no int(12);
+
+select* from student_info;
+
+alter table student_info
+MODIFY phone_no varchar(12);
+
+select* from student_info;
+
+-- renaming
+alter table student_info
+change result marks varchar(10);
+select* from student_info;
+
+-- column drop
+alter table student_info
+drop column phone_no;
+select* from student_info;
+
+-- truncate
+truncate table student_info;
+select* from student_info;
